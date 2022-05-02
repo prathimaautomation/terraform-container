@@ -3,12 +3,12 @@
 ```Dockerfile
 FROM python:3.8.6
 
-RUN apt-get update && apt-get install -y jq \
-	&& pip install -y awscli \
-	&& apt-get install -y git \
-	&& pip install ldap3 retrying -q \
-	&& pip install boto3 -q \
-	&& pip install requests -q
+RUN apt-get update && apt-get install jq awscli git
+RUN git --version
+RUN pip --version
+RUN pip install ldap3 PyYAML retrying -q
+RUN pip install boto3 -q
+RUN pip install requests -q
 
 # Install Terraform
 
